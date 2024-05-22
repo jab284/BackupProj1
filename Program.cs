@@ -1,25 +1,40 @@
 ﻿class Program
 {
+
+    // Application setup
+        //TodoListStorage appStorage = new TodoListStorage(); 5/22
+        //UserRepo userRepo = new UserRepo(appStorage);
+        //TodoRepo todoRepo = new TodoRepo(appStorage);
+       static UserService userService;
+       static TodoService todoService;     // = new TodoService(todRepo);
+        static UserController userController; // = new UserController(userService);  //added 5/21
+        static ToDoController todoController;  // = new ToDoController(todoService);  //added 5/21
     //This is the MAIN --------------------------------------------
     static void Main(string[] args)
     {
+        /* 5/22
         // Application setup
         TodoListStorage appStorage = new TodoListStorage(); 
         UserRepo userRepo = new UserRepo(appStorage);
-        TodoRepo todoRepo = new TodoRepo(appStorage);
-        UserService userService = new UserService(userRepo);
-        TodoService todoService = new TodoService(todoRepo);
-        UserController userConroller = new UserController(userService);  //added 5/21
-        ToDoController todoController = new ToDoController(todoService);  //added 5/21
+        TodoRepo todoRepo = new TodoRepo(appStorage);  */
+        //UserService userService; //= new UserService(userRepo);
+        //TodoService todoService;  //= new TodoService(todoRepo);
+        userController = new(userService);
 
+        //UserController userController = new UserController(userService);  //added 5/21
+        //ToDoController todoController = new ToDoController(todoService);  //added 5/21
+        
         //string with path
         string path = @"C:\Revature\DBConnections\JenAToDoListApp.txt";   //added path
         string connectionString = File.ReadAllText(path);    ///reads path  
 
-        System.Console.WriteLine(connectionString);  //remove later - verifies it is reading file
+        //System.Console.WriteLine(connectionString);  //remove later - verifies it is reading file
 
-        UserRepo UserRepo = new(connectionString);  //added 5/21  
+        UserRepo userRepo = new(connectionString);  //added 5/21  
         userService = new(userRepo);  // added 5/21 
+        userController = new(userService);
+        TodoRepo todoRepo = new(connectionString);
+        todoService = new(todoRepo);
 
         //Console
         System.Console.WriteLine();
@@ -45,7 +60,7 @@
             switch (selection)
             {
                 case 1:
-                    DisplayRegisterUserMenu(userController);  //updated 5/21  from service to controller
+                    DisplayRegisterUserMenu();    //(userController);  //updated 5/21  from service to controller
                     break;
                 case 2:
                     try
@@ -89,7 +104,7 @@
                     DisplayAddTodoMenu(todoService, user);
                     break;
                 case 2:
-                    DisplayAllTodosMenu(todoService, user);
+                    DisplayAllTodosMenu(todoController, user);
                     break;
                 case 3:
                     System.Console.WriteLine("Have a great day.  See you later!");
@@ -184,7 +199,7 @@
             System.Console.WriteLine();
             System.Console.WriteLine("Please select an option:");
 
-            string? input = Console.ReadLine(); //returns users input for selection
+            string? input = Console.ReadLine().TrimEnd()?? ""; //returns users input for selection
             System.Console.WriteLine(); 
             System.Console.WriteLine("------------------------");
             System.Console.WriteLine();
@@ -225,7 +240,7 @@
             System.Console.WriteLine();
             System.Console.WriteLine("Please select an option:");
 
-            string? input = Console.ReadLine(); //returns users input for selection
+            string? input = Console.ReadLine().TrimEnd()?? ""; //returns users input for selection
             System.Console.WriteLine();
             try
             {
@@ -250,7 +265,7 @@
     static void DisplayAddTodoMenu(TodoService todoService, User activeUser)
     {
         System.Console.WriteLine("What task would you like add?");
-        string? input = Console.ReadLine();
+        string? input = Console.ReadLine().TrimEnd()?? "";
         System.Console.WriteLine();
 
         Todo todo = todoService.AddTodo(input, activeUser);
@@ -260,7 +275,7 @@
     }
 
     //Method Display All Todo's
-    static void DisplayAllTodosMenu(TodoController todoController, User activeUser)
+    static void DisplayAllTodosMenu(ToDoController todoController, User activeUser)
     {
         System.Console.WriteLine("YOUR LIST OF TODO TASKS:");
         System.Console.WriteLine();
@@ -275,7 +290,7 @@
     }
 
     // Method to Display Register User Menu
-    static User DisplayRegisterUserMenu(UserController userController)  // updated 5/21  service to controller
+    static User DisplayRegisterUserMenu()   //(UserController userController)  // updated 5/21  service to controller
     {
         System.Console.WriteLine("REGISTER:");
         System.Console.WriteLine();

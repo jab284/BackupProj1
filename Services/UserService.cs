@@ -1,6 +1,6 @@
 class UserService
 {
-    private UserRepo userRepo;
+    UserRepo userRepo;
     
     public UserService(UserRepo userRepo)
     {
@@ -8,7 +8,7 @@ class UserService
     }
 
     //Register the user
-    public User RegisterUser(string firstName, string userName, string password)
+    public User? RegisterUser(string firstName, string userName, string password)
     {
         User user = new User(firstName, userName, password);
         user = userRepo.AddUser(user);

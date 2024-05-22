@@ -1,6 +1,6 @@
 class UserController   //added page 5/21
 {
-    private UserService userService;
+     public UserService userService;
     public UserController(UserService userService)
     {
         this.userService = userService;

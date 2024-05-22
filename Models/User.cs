@@ -1,12 +1,20 @@
+using Azure.Identity;
+
 class User
 {
     //Properties
     public int Id { get; set;}
     public string Name { get; set;}
     public string UserName { get; set;}  
-    public string Password { get; private set;}
+    public string Password { get; set;}
     
    //Constructors
+   public User()
+   {
+        Name = "";
+        UserName = "";
+        Password = "";
+   }
     public User(string firstName, string userName, string password)
     {
         Name = firstName;

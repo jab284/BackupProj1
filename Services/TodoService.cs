@@ -1,6 +1,6 @@
 class TodoService
 {
-    private TodoRepo _todoRepo;
+    TodoRepo _todoRepo;
     
     public TodoService(TodoRepo todoRepo)
     {
