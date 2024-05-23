@@ -28,7 +28,7 @@ class TodoRepo
         connection.Open();
 
         //Create the SQL String
-        string sql = "INSERT INTO dbo.[User] OUTPUT inserted.* VALUES (@UserId, @Description)";  //table column names
+        string sql = "INSERT INTO dbo.[ToDo] OUTPUT inserted.* VALUES (@UserId, @Description)";  //table column names
 
         //Set up SqlCommand Object and use its methods to modify the Parameterized Values
         using SqlCommand cmd = new(sql, connection);
@@ -85,11 +85,11 @@ class TodoRepo
             connection.Open();
 
             /* Create the SQL string to pull all data on table */ 
-            string sql = "SELECT * FROM dbo.[Todo]";
+            string sql = "SELECT * FROM dbo.[Todo] WHERE UserId = @UserId"; //table name and column names
 
             /* Set up the SqlCommand Object */
             using SqlCommand  cmd = new(sql, connection);
-
+            cmd.Parameters.AddWithValue("@UserId", userId);
             /* Read table */ 
             using SqlDataReader reader = cmd.ExecuteReader();
 

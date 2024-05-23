@@ -25,7 +25,7 @@
         //ToDoController todoController = new ToDoController(todoService);  //added 5/21
         
         //string with path
-        string path = @"C:\Revature\DBConnections\JenAToDoListApp.txt";   //added path
+        string path = @"C:\Users\JAB_2\Desktop\JenAToDoListApp.txt";   //added path
         string connectionString = File.ReadAllText(path);    ///reads path  
 
         //System.Console.WriteLine(connectionString);  //remove later - verifies it is reading file
@@ -35,6 +35,7 @@
         userController = new(userService);
         TodoRepo todoRepo = new(connectionString);
         todoService = new(todoRepo);
+        todoController = new(todoService);
 
         //Console
         System.Console.WriteLine();
@@ -279,6 +280,7 @@
     {
         System.Console.WriteLine("YOUR LIST OF TODO TASKS:");
         System.Console.WriteLine();
+       
         List<Todo> todos = todoController.GetAllTodos(activeUser);   //updated 5/21  service to controller
         foreach (Todo todo in todos)
         {

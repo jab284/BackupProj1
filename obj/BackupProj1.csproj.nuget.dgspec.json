@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Revature\\BackupProj1\\BackupProj1.csproj": {}
+    "C:\\Bootcamp\\BackupProj1\\BackupProj1.csproj": {}
   },
   "projects": {
-    "C:\\Revature\\BackupProj1\\BackupProj1.csproj": {
+    "C:\\Bootcamp\\BackupProj1\\BackupProj1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature\\BackupProj1\\BackupProj1.csproj",
+        "projectUniqueName": "C:\\Bootcamp\\BackupProj1\\BackupProj1.csproj",
         "projectName": "BackupProj1",
-        "projectPath": "C:\\Revature\\BackupProj1\\BackupProj1.csproj",
-        "packagesPath": "C:\\dev\\nuget\\packages",
-        "outputPath": "C:\\Revature\\BackupProj1\\obj\\",
+        "projectPath": "C:\\Bootcamp\\BackupProj1\\BackupProj1.csproj",
+        "packagesPath": "C:\\Users\\JAB_2\\.nuget\\packages\\",
+        "outputPath": "C:\\Bootcamp\\BackupProj1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\U1C073\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\JAB_2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
